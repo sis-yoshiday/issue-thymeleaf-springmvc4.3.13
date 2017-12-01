@@ -7,8 +7,10 @@
 <form>
   <select th:field="${myForm.v}">
     <option th:each="item : ${enums}" th:text="${item.name()}" th:value="${item.name()}">x</option>
+    <!-- below element will be removed and value can not parse as MyEnum -->
     <option th:remove="all" value="X">Y</option>
-    <!-- this element will be removed and value can not parse as MyEnum -->
+    <!-- workaround : using correct value -->
+    <!-- <option th:remove="all" value="A">Y</option> -->
   </select>
 </form>
 </body>
