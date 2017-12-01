@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ja">
+<head>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+<form>
+  <select th:field="${myForm.v}">
+    <option th:each="item : ${enums}" th:text="${item.name()}" th:value="${item.name()}">x</option>
+    <option th:remove="all" value="X">Y</option>
+    <!-- this element will be removed and value can not parse as MyEnum -->
+  </select>
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+buildscript {
+  ext {
+    //springBootVersion = '1.5.8.RELEASE'// spring-webmvc:4.3.12, works fine
+    springBootVersion = '1.5.9.RELEASE'// spring-webmvc:4.3.13, cause Exception
+  }
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+  }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+  baseName = 'demo'
+  version = '0.0.1-SNAPSHOT'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+  mavenCentral()
+}
+
+ext['thymeleaf.version'] = '3.0.8.RELEASE'
+ext['thymeleaf-layout-dialect.version'] = '2.2.2'
+
+dependencies {
+  compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+  compile('org.springframework.boot:spring-boot-starter-web')
+}
